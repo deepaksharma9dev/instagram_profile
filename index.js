@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const { ApolloServer } = require("apollo-server-express");
+
 require("dotenv").config();
 const PORT = process.env.PORT || 4000;
 
@@ -12,9 +12,13 @@ app.use(express.json());
 
 
 const AuthRoutes = require('./routes/Authentication');
-app.use('/api/auth', AuthRoutes);
+const MediaRoutes = require('./routes/Photos');
+
+app.use('/api/authRoutes', AuthRoutes);
+app.use('/api/mediaRoutes', MediaRoutes);
 
 // routes
+
 
 
 
