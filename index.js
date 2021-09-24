@@ -1,14 +1,15 @@
 const express = require("express");
 const cors = require("cors");
-
 require("dotenv").config();
-const PORT = process.env.PORT || 4000;
+
+
 
 const app = express();
-
-
+const db = require('./db/db');
+db.connect_db();
 app.use(cors());
 app.use(express.json());
+
 
 
 const AuthRoutes = require('./routes/Authentication');
@@ -23,5 +24,5 @@ app.use('/api/mediaRoutes', MediaRoutes);
 
 
 // start server on the PORT.
-
+const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => console.log(`Server started on port: ${PORT}`));
