@@ -7,7 +7,7 @@ const getUserMedia = async(req, res, next) => {
         let resp = await axios.get(`https://graph.instagram.com/me/media?fields=media_type,permalink,media_url,caption,username,timestamp&access_token=${instaAccessToken}`);
         resp = resp.data;
         console.log(resp);
-        fs.writeFileSync('photos.json', JSON.stringify(resp));
+        // fs.writeFileSync('Photos.json', JSON.stringify(resp));
         return res.status(200).send(resp);
     } catch (e) {
         console.log(e.response.data.error);
